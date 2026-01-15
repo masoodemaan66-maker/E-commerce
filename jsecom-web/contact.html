@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | Emaan Store</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+
+<body class="bg-gray-100 flex flex-col min-h-screen">
+
+  <!-- Navbar -->
+  <nav class="w-full bg-white shadow-md">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 flex items-center justify-between h-14">
+      <img class="h-20 w-auto" src="./public/top logo (1).png" alt="Logo">
+
+      <ul class="flex gap-6 text-sm md:text-base items-center">
+        <li><a href="index.html" class="hover:text-green-600">Home</a></li>
+        <li><a href="about.html" class="hover:text-green-600">About</a></li>
+        <li><a href="product.html" class="hover:text-green-600">Products</a></li>
+        <li><a href="contact.html" class="text-green-600 font-medium">Contact</a></li>
+        <li>
+          <a href="addToCard.html" class="flex items-center gap-2">
+            <i class="fa-solid fa-cart-arrow-down"></i>
+            <span id="cartCount">0</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Contact Section -->
+  <main class="flex-1">
+    <section class="py-16">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
+
+        <!-- Heading -->
+        <div class="text-center mb-12">
+          <h1 class="text-3xl md:text-4xl font-bold text-gray-900">
+            Contact Us
+          </h1>
+          <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
+            Have a question about our products or your order?
+            We’re here to help you.
+          </p>
+        </div>
+
+        <!-- Content -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+
+          <!-- Contact Info -->
+          <div class="bg-white p-8 rounded-xl shadow-lg">
+            <h2 class="text-2xl font-semibold mb-6">Get in Touch</h2>
+
+            <div class="space-y-4 text-gray-700">
+              <p class="flex items-center gap-3">
+                <i class="fa-solid fa-location-dot text-green-600"></i>
+                jhang, Pakistan
+              </p>
+              <p class="flex items-center gap-3">
+                <i class="fa-solid fa-phone text-green-600"></i>
+                +92 290049750
+              </p>
+              <p class="flex items-center gap-3">
+                <i class="fa-solid fa-envelope text-green-600"></i>
+                support@emaanstore.com
+              </p>
+            </div>
+
+            <p class="text-gray-600 mt-6">
+              Our support team is available Monday to Saturday,
+              10:00 AM – 6:00 PM.
+            </p>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="bg-white p-8 rounded-xl shadow-lg">
+            <h2 class="text-2xl font-semibold mb-6">Send Us a Message</h2>
+
+            <form onsubmit="return handleContact()">
+
+              <div class="mb-4">
+                <label class="block text-sm font-medium mb-1">Full Name</label>
+                <input
+                  id="name"
+                  type="text"
+                  placeholder="Your name"
+                  class="w-full px-3 py-2 border rounded-md focus:ring-2 focus:ring-green-500 outline-none"
+                >
+              </div>
+
+              <div class="mb-4">
+                <label class="block text-sm font-medium mb-1">Email</label>
+                <input
+                  id="email"
+                  type="email"
+                  placeholder="example@email.com"
+                  class="w-full px-3 py-2 border rounded-md focus:ring-2 focus:ring-green-500 outline-none"
+                >
+              </div>
+
+              <div class="mb-4">
+                <label class="block text-sm font-medium mb-1">Message</label>
+                <textarea
+                  id="message"
+                  rows="4"
+                  placeholder="Write your message..."
+                  class="w-full px-3 py-2 border rounded-md focus:ring-2 focus:ring-green-500 outline-none"
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                class="w-full bg-black text-white py-2 rounded-md hover:bg-green-600 hover:text-black transition font-semibold"
+              >
+                Send Message
+              </button>
+
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+   <section class="w-full bg-gray-900 py-8 sm:py-12 md:py-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 flex flex-col md:flex-row items-center md:items-start justify-between gap-10">
+      <div class="flex flex-col sm:flex-row items-center gap-4 max-w-md text-center sm:text-left">
+        <img src="./public/top logo (1).png" alt="Logo" class="h-20 w-auto">
+        <p class="text-white text-md leading-snug">Welcome to Emaan Store, take care of your skin with premium products.</p>
+      </div>
+      <div>
+        <ul class="flex flex-col gap-3 text-center md:text-left py-2 text-white">
+          <li class="hover:text-green-600 cursor-pointer">Experience</li>
+          <li class="hover:text-green-600 cursor-pointer">Contact Us</li>
+          <li class="hover:text-green-600 cursor-pointer">Payment Method</li>
+          <li class="hover:text-green-600 cursor-pointer">Return and Exchange</li>
+        </ul>
+      </div>
+    </div>
+  </section>  
+  <footer class="bg-gray-900 py-6 text-center text-white text-sm">
+    © 2026 Emaan Store. All rights reserved.
+  </footer>
+
+  <!-- Script -->
+  <script>
+    function handleContact() {
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      if (!name || !email || !message) {
+        alert("Please fill all fields");
+        return false;
+      }
+
+      alert("Thank you for contacting us! We will get back to you soon.");
+      return false; // backend later
+    }
+  </script>
+
+</body>
+</html>

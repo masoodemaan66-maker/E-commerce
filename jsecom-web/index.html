@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emaan Store</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-white">
+
+  <!-- Toast Notification -->
+  <div id="toast" class="fixed top-5 right-5 bg-green-600 text-white px-4 py-2 rounded shadow hidden z-50"></div>
+
+  <!-- Header -->
+  <header class="w-full bg-gray-900">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 flex flex-col md:flex-row items-center justify-between py-3 gap-1">
+      <h1 class="text-xl text-white text-center md:text-left whitespace-nowrap">Free shipping 10 days return policy</h1>
+      <ul class="flex gap-4 text-sm whitespace-nowrap">
+        <li><a href="./login.html" class="text-blue-800">SIGN IN</a></li>
+        <li><a href="./signup.html" class="text-blue-800">SIGN UP</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Navbar -->
+  <nav class="w-full bg-white shadow-md">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 flex items-center justify-between h-14">
+      <!-- Logo -->
+      <img class="h-35 w-auto" src="./public/top logo (1).png" alt="Logo">
+
+      <!-- Menu -->
+      <ul class="flex gap-6 text-sm md:text-base flex-wrap items-center">
+        <li><a href="/" class="hover:text-green-600 transition">Home</a></li>
+        <li><a href="about.html" class="hover:text-green-600 transition">About</a></li>
+        <li><a href="product.html" class="hover:text-green-600 transition">Products</a></li>
+        <li><a href="contact.html" class="hover:text-green-600 transition">Contact</a></li>
+        <li>
+          <a href="addToCard.html" class="flex items-center gap-2">
+            <i class="fa-solid fa-cart-arrow-down text-gray-900"></i>
+            <span id="cartCount">0</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <main>
+    <section class="w-full bg-gray-900 py-20">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 flex flex-col md:flex-row items-center gap-10">
+        <div class="flex-1 text-center md:text-left">
+          <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight">
+            Glow Every Day With Our Luxury Cosmetics Collection
+          </h1>
+          <p class="text-gray-300 text-base sm:text-lg md:text-xl mt-6 max-w-md mx-auto md:mx-0">
+            Reveal your inner radiance with our premium cosmetics collection.
+          </p>
+        </div>
+        <div class="flex-1 mt-8 md:mt-0">
+          <img src="https://wantasticbeauty.wordpress.com/wp-content/uploads/2016/09/img-20160908-wa0003-1.jpg"
+            alt="Luxury Cosmetics" class="w-full h-auto rounded-lg shadow-lg">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Product Section -->
+  <section class="w-full bg-gray-100 py-10">
+    <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- Product 1 -->
+      <div class="bg-white rounded-xl shadow-lg p-5 flex flex-col gap-4">
+        <span class="bg-green-600 text-white text-xs px-3 py-1 rounded-md w-fit">For Acne</span>
+        <img class="h-40 w-full object-contain"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFCLws-p3GfFopZMLeCYuWVYS-4FCcyA3VMA&s"
+          alt="Acne Product">
+        <h1 class="font-semibold text-lg">For Acne</h1>
+        <div class="flex gap-1">
+          <i class="fa-solid fa-star text-yellow-500"></i>
+          <i class="fa-solid fa-star text-yellow-500"></i>
+          <i class="fa-solid fa-star text-yellow-500"></i>
+          <i class="fa-solid fa-star text-yellow-500"></i>
+          <i class="fa-solid fa-star text-yellow-500"></i>
+        </div>
+        <p class="text-sm text-gray-600">Best acne products from SCS for acne-prone skin with visible results.</p>
+        <p class="text-xl font-bold">3186 PKR</p>
+        <div class="flex items-center gap-4">
+          <span class="font-medium">Quantity</span>
+          <div class="flex items-center gap-3 border px-3 py-1 rounded-md">
+            <button onclick="changeQty(this, -1)" class="text-lg font-bold">−</button>
+            <span class="font-medium quantity">1</span>
+            <button onclick="changeQty(this, 1)" class="text-lg font-bold">+</button>
+          </div>
+
+        </div>
+        <button
+          onclick="addToCart(this, 1,'For Acne', 3186, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFCLws-p3GfFopZMLeCYuWVYS-4FCcyA3VMA&s')"
+          class="flex items-center justify-center gap-2 bg-black text-white py-2 rounded-md hover:bg-green-600 hover:text-black transition cursor-pointer">
+          <i class="fa-solid fa-cart-plus"></i> Add To Cart
+        </button>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="bg-white rounded-xl shadow-lg p-5 flex flex-col gap-4">
+        <span class="bg-green-600 text-white text-xs px-3 py-1 rounded-md w-fit">For Glow</span>
+        <img class="h-40 w-full object-contain"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTklkO2mH1JdKhFjL28WZhSh9N8ImhcV7ltIg&s"
+          alt="Glow Product">
+        <h1 class="font-semibold text-lg">For Glow</h1>
+        <div class="flex gap-1">
+          <i class="fa-solid fa-star text-yellow-500"></i>
+          <i class="fa-solid fa-star text-yellow-500"></i>
+          <i class="fa-solid fa-star text-yellow-500"></i>
+          <i class="fa-solid fa-star text-yellow-500"></i>
+          <i class="fa-solid fa-star text-yellow-500"></i>
+        </div>
+        <p class="text-sm text-gray-600">Best Vitamin C product from SCS for dull skin with visible results.</p>
+        <p class="text-xl font-bold">3655 PKR</p>
+        <div class="flex items-center gap-4">
+          <span class="font-medium">Quantity</span>
+          <div class="flex items-center gap-3 border px-3 py-1 rounded-md">
+            <button onclick="changeQty(this, -1)" class="text-lg font-bold">−</button>
+            <span class="font-medium quantity">1</span>
+            <button onclick="changeQty(this, 1)" class="text-lg font-bold">+</button>
+          </div>
+
+        </div>
+        <button
+          onclick="addToCart(this, 2, 'Glow Set', 3655, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTklkO2mH1JdKhFjL28WZhSh9N8ImhcV7ltIg&s')"
+          class="flex items-center justify-center gap-2 bg-black text-white py-2 rounded-md hover:bg-green-600 hover:text-black transition cursor-pointer">
+          <i class="fa-solid fa-cart-plus"></i> Add To Cart
+        </button>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="bg-white rounded-xl shadow-lg p-5 flex flex-col gap-4">
+        <span class="bg-green-600 text-white text-xs px-3 py-1 rounded-md w-fit">For Clear Skin</span>
+        <img class="h-40 w-full object-contain"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbK6PIEz_qI-2A4hcbxx3bChTaky1layUVEQ&s"
+          alt="Clear Skin Product">
+        <h1 class="font-semibold text-lg">For Clear Skin</h1>
+        <div class="flex gap-1">
+          <i class="fa-solid fa-star text-yellow-500"></i>
+          <i class="fa-solid fa-star text-yellow-500"></i>
+          <i class="fa-solid fa-star text-yellow-500"></i>
+          <i class="fa-solid fa-star text-yellow-500"></i>
+          <i class="fa-solid fa-star text-yellow-500"></i>
+        </div>
+        <p class="text-sm text-gray-600">Best rose products from SCS for pigmented skin with visible results.</p>
+        <p class="text-xl font-bold">3166 PKR</p>
+        <div class="flex items-center gap-4">
+          <span class="font-medium">Quantity</span>
+          <div class="flex items-center gap-3 border px-3 py-1 rounded-md">
+            <button onclick="changeQty(this, -1)" class="text-lg font-bold">−</button>
+            <span class="font-medium quantity">1</span>
+            <button onclick="changeQty(this, 1)" class="text-lg font-bold">+</button>
+          </div>
+
+        </div>
+        <button
+          onclick="addToCart(this, 3,'Rose Set', 3166, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbK6PIEz_qI-2A4hcbxx3bChTaky1layUVEQ&s')"
+          class="flex items-center justify-center gap-2 bg-black text-white py-2 rounded-md hover:bg-green-600 hover:text-black transition cursor-pointer">
+          <i class="fa-solid fa-cart-plus"></i> Add To Cart
+        </button>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="bg-white rounded-xl shadow-lg p-5 flex flex-col gap-4">
+        <span class="bg-green-600 text-white text-xs px-3 py-1 rounded-md w-fit">Sun Protection</span>
+        <img class="h-40 w-full object-contain"
+          src="https://www.lookme.com.pk/wp-content/uploads/2025/10/04769af3acfb771df3e733b010298fa3.jpeg"
+          alt="Sun Protection Product">
+        <h1 class="font-semibold text-lg">For Sun Protection</h1>
+        <div class="flex gap-1">
+          <i class="fa-solid fa-star text-yellow-500"></i>
+          <i class="fa-solid fa-star text-yellow-500"></i>
+          <i class="fa-solid fa-star text-yellow-500"></i>
+          <i class="fa-solid fa-star text-yellow-500"></i>
+          <i class="fa-solid fa-star text-yellow-500"></i>
+        </div>
+        <p class="text-sm text-gray-600">Protect your skin from sun with SCS products.</p>
+        <p class="text-xl font-bold">899 PKR</p>
+        <div class="flex items-center gap-4">
+          <span class="font-medium">Quantity</span>
+          <div class="flex items-center gap-3 border px-3 py-1 rounded-md">
+            <button onclick="changeQty(this, -1)" class="text-lg font-bold">−</button>
+            <span class="font-medium quantity">1</span>
+            <button onclick="changeQty(this, 1)" class="text-lg font-bold">+</button>
+          </div>
+
+        </div>
+        <button
+          onclick="addToCart(this, 4,'Sun Block', 899, 'https://www.lookme.com.pk/wp-content/uploads/2025/10/04769af3acfb771df3e733b010298fa3.jpeg')"
+          class="flex items-center justify-center gap-2 bg-black text-white py-2 rounded-md hover:bg-green-600 hover:text-black transition cursor-pointer">
+          <i class="fa-solid fa-cart-plus"></i> Add To Cart
+        </button>
+      </div>
+
+      <!-- Product 5 -->
+      <div class="bg-white rounded-xl shadow-lg p-5 flex flex-col gap-4">
+        <span class="bg-green-600 text-white text-xs px-3 py-1 rounded-md w-fit">Dead Skin</span>
+        <img class="h-40 w-full object-contain"
+          src="https://www.lookme.com.pk/wp-content/uploads/2025/10/1ca4add3014834be1b3440417c796ac7-removebg-preview.png"
+          alt="Dead Skin Product">
+        <h1 class="font-semibold text-lg">For Dead Skin</h1>
+        <div class="flex gap-1">
+          <i class="fa-solid fa-star text-yellow-500"></i>
+          <i class="fa-solid fa-star text-yellow-500"></i>
+          <i class="fa-solid fa-star text-yellow-500"></i>
+          <i class="fa-solid fa-star text-yellow-500"></i>
+          <i class="fa-solid fa-star text-yellow-500"></i>
+        </div>
+        <p class="text-sm text-gray-600">Best mask from SCS for dead skin with visible results.</p>
+        <p class="text-xl font-bold">1290 PKR</p>
+        <div class="flex items-center gap-4">
+          <span class="font-medium">Quantity</span>
+          <div class="flex items-center gap-3 border px-3 py-1 rounded-md">
+            <button onclick="changeQty(this, -1)" class="text-lg font-bold">−</button>
+            <span class="font-medium quantity">1</span>
+            <button onclick="changeQty(this, 1)" class="text-lg font-bold">+</button>
+          </div>
+
+        </div>
+        <button
+          onclick="addToCart(this, 5,'Mask', 1290, 'https://www.lookme.com.pk/wp-content/uploads/2025/10/1ca4add3014834be1b3440417c796ac7-removebg-preview.png')"
+          class="flex items-center justify-center gap-2 bg-black text-white py-2 rounded-md hover:bg-green-600 hover:text-black transition cursor-pointer">
+          <i class="fa-solid fa-cart-plus"></i> Add To Cart
+        </button>
+      </div>
+
+      <!-- Product 6 -->
+      <div class="bg-white rounded-xl shadow-lg p-5 flex flex-col gap-4">
+        <span class="bg-green-600 text-white text-xs px-3 py-1 rounded-md w-fit">Dry Skin</span>
+        <img class="h-40 w-full object-contain"
+          src="https://pk-live-21.slatic.net/kf/Sc17594901d3a4066a4ee88d4d15e8654i.jpg" alt="Dry Skin Product">
+        <h1 class="font-semibold text-lg">For Dry Skin</h1>
+        <div class="flex gap-1">
+          <i class="fa-solid fa-star text-yellow-500"></i>
+          <i class="fa-solid fa-star text-yellow-500"></i>
+          <i class="fa-solid fa-star text-yellow-500"></i>
+          <i class="fa-solid fa-star text-yellow-500"></i>
+          <i class="fa-solid fa-star text-yellow-500"></i>
+        </div>
+        <p class="text-sm text-gray-600">Best scrub from SCS for dull and dry lips with visible results.</p>
+        <p class="text-xl font-bold">500 PKR</p>
+        <div class="flex items-center gap-4">
+          <span class="font-medium">Quantity</span>
+          <div class="flex items-center gap-3 border px-3 py-1 rounded-md">
+            <button onclick="changeQty(this, -1)" class="text-lg font-bold">−</button>
+            <span class="font-medium quantity">1</span>
+            <button onclick="changeQty(this, 1)" class="text-lg font-bold">+</button>
+          </div>
+
+        </div>
+        <button
+          onclick="addToCart(this, 6,'Lip Scrub', 500, 'https://pk-live-21.slatic.net/kf/Sc17594901d3a4066a4ee88d4d15e8654i.jpg')"
+          class="flex items-center justify-center gap-2 bg-black text-white py-2 rounded-md hover:bg-green-600 hover:text-black transition cursor-pointer">
+          <i class="fa-solid fa-cart-plus"></i> Add To Cart
+        </button>
+      </div>
+
+      <!-- Product 7 -->
+      <div class="bg-white rounded-xl shadow-lg p-5 flex flex-col gap-4">
+        <span class="bg-green-600 text-white text-xs px-3 py-1 rounded-md w-fit">For Oily Skin</span>
+        <img class="h-40 w-full object-contain" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJQQmzq3I2VhmArDBKOitcX9ll5fIrljS5jg&s" alt="Oily Skin Product">
+        <h1 class="font-semibold text-lg">Oily Skin Care</h1>
+        <div class="flex gap-1">
+          <i class="fa-solid fa-star text-yellow-500"></i><i class="fa-solid fa-star text-yellow-500"></i><i
+            class="fa-solid fa-star text-yellow-500"></i><i class="fa-solid fa-star text-yellow-500"></i><i
+            class="fa-solid fa-star text-yellow-500"></i>
+        </div>
+        <p class="text-sm text-gray-600">Best oil-control products from SCS for oily skin.</p>
+        <p class="text-xl font-bold">2200 PKR</p>
+        <div class="flex items-center gap-4">
+          <span class="font-medium">Quantity</span>
+          <div class="flex items-center gap-3 border px-3 py-1 rounded-md">
+            <button onclick="changeQty(this, -1)" class="text-lg font-bold">−</button>
+            <span class="font-medium quantity">1</span>
+            <button onclick="changeQty(this, 1)" class="text-lg font-bold">+</button>
+          </div>
+
+        </div>
+        <button onclick="addToCart(this, 7,'Oily Skin Care', 2200, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJQQmzq3I2VhmArDBKOitcX9ll5fIrljS5jg&s')"
+          class="flex items-center justify-center gap-2 bg-black text-white py-2 rounded-md hover:bg-green-600 hover:text-black transition cursor-pointer">
+          <i class="fa-solid fa-cart-plus"></i> Add To Cart
+        </button>
+      </div>
+
+      <!-- Product 8 -->
+      <div class="bg-white rounded-xl shadow-lg p-5 flex flex-col gap-4">
+        <span class="bg-green-600 text-white text-xs px-3 py-1 rounded-md w-fit">For Sensitive Skin</span>
+        <img class="h-40 w-full object-contain" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUYEXP2z6z3vXTcIh3whbvm91Gas5a5j2D7Q&s" alt="Sensitive Skin Product">
+        <h1 class="font-semibold text-lg">Sensitive Skin Care</h1>
+        <div class="flex gap-1">
+          <i class="fa-solid fa-star text-yellow-500"></i><i class="fa-solid fa-star text-yellow-500"></i><i
+            class="fa-solid fa-star text-yellow-500"></i><i class="fa-solid fa-star text-yellow-500"></i><i
+            class="fa-solid fa-star text-yellow-500"></i>
+        </div>
+        <p class="text-sm text-gray-600">whitining cream for sensitive skin with visible results.</p>
+        <p class="text-xl font-bold">2750 PKR</p>
+        <div class="flex items-center gap-4">
+          <span class="font-medium">Quantity</span>
+          <div class="flex items-center gap-3 border px-3 py-1 rounded-md">
+            <button onclick="changeQty(this, -1)" class="text-lg font-bold">−</button>
+            <span class="font-medium quantity">1</span>
+            <button onclick="changeQty(this, 1)" class="text-lg font-bold">+</button>
+          </div>
+
+        </div>
+        <button onclick="addToCart(this, 8, 'whitining cream', 2750, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUYEXP2z6z3vXTcIh3whbvm91Gas5a5j2D7Q&s')"
+          class="flex items-center justify-center gap-2 bg-black text-white py-2 rounded-md hover:bg-green-600 hover:text-black transition cursor-pointer">
+          <i class="fa-solid fa-cart-plus"></i> Add To Cart
+        </button>
+      </div>
+
+      <!-- Product 9 -->
+      <div class="bg-white rounded-xl shadow-lg p-5 flex flex-col gap-4">
+        <span class="bg-green-600 text-white text-xs px-3 py-1 rounded-md w-fit">Anti Aging 
+          Serum
+        </span>
+        <img class="h-40 w-full object-contain" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXg66yIivQTnmfktBRtcMUgpP29P4LrMTlEg&s" alt="Anti Aging Product">
+        <h1 class="font-semibold text-lg">Anti Aging Serum</h1>
+        <div class="flex gap-1">
+          <i class="fa-solid fa-star text-yellow-500"></i><i class="fa-solid fa-star text-yellow-500"></i><i
+            class="fa-solid fa-star text-yellow-500"></i><i class="fa-solid fa-star text-yellow-500"></i><i
+            class="fa-solid fa-star text-yellow-500"></i>
+        </div>
+        <p class="text-sm text-gray-600">Anti-aging products from SCS for youthful skin.</p>
+        <p class="text-xl font-bold">4500 PKR</p>
+        <div class="flex items-center gap-4">
+          <span class="font-medium">Quantity</span>
+          <div class="flex items-center gap-3 border px-3 py-1 rounded-md">
+            <button onclick="changeQty(this, -1)" class="text-lg font-bold">−</button>
+            <span class="font-medium quantity">1</span>
+            <button onclick="changeQty(this, 1)" class="text-lg font-bold">+</button>
+          </div>
+
+        </div>
+        <button onclick="addToCart(this, 9,'Anti Aging Set', 4500, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXg66yIivQTnmfktBRtcMUgpP29P4LrMTlEg&s')"
+          class="flex items-center justify-center gap-2 bg-black text-white py-2 rounded-md hover:bg-green-600 hover:text-black transition cursor-pointer">
+          <i class="fa-solid fa-cart-plus"></i> Add To Cart
+        </button>
+      </div>
+
+      <!-- Product 10 -->
+      <div class="bg-white rounded-xl shadow-lg p-5 flex flex-col gap-4">
+        <span class="bg-green-600 text-white text-xs px-3 py-1 rounded-md w-fit">For Dark Spots</span>
+        <img class="h-40 w-full object-contain" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTj-FYjj87sbJqQ4MRUBCzt5S0A0VmU3aSNWA&s" alt="Dark Spots Product">
+        <h1 class="font-semibold text-lg">Dark Spots Corrector</h1>
+        <div class="flex gap-1">
+          <i class="fa-solid fa-star text-yellow-500"></i><i class="fa-solid fa-star text-yellow-500"></i><i
+            class="fa-solid fa-star text-yellow-500"></i><i class="fa-solid fa-star text-yellow-500"></i><i
+            class="fa-solid fa-star text-yellow-500"></i>
+        </div>
+        <p class="text-sm text-gray-600">Corrects dark spots for even-toned skin.</p>
+        <p class="text-xl font-bold">3200 PKR</p>
+        <div class="flex items-center gap-4">
+          <span class="font-medium">Quantity</span>
+          <div class="flex items-center gap-3 border px-3 py-1 rounded-md">
+            <button onclick="changeQty(this, -1)" class="text-lg font-bold">−</button>
+            <span class="font-medium quantity">1</span>
+            <button onclick="changeQty(this, 1)" class="text-lg font-bold">+</button>
+          </div>
+        </div>
+        <button onclick="addToCart(this, 10,'Dark Spots Corrector', 3200, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTj-FYjj87sbJqQ4MRUBCzt5S0A0VmU3aSNWA&s')"
+          class="flex items-center justify-center gap-2 bg-black text-white py-2 rounded-md hover:bg-green-600 hover:text-black transition cursor-pointer">
+          <i class="fa-solid fa-cart-plus"></i> Add To Cart
+        </button>
+      </div>
+
+      <!-- Product 11 -->
+      <div class="bg-white rounded-xl shadow-lg p-5 flex flex-col gap-4">
+        <span class="bg-green-600 text-white text-xs px-3 py-1 rounded-md w-fit">For Hydration</span>
+        <img class="h-40 w-full object-contain" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTsABqnFJieSAnWUgKgAgmu3wS2f8NP3NY5A&s" alt="Hydration Product">
+        <h1 class="font-semibold text-lg">Hydrating Serum</h1>
+        <div class="flex gap-1">
+          <i class="fa-solid fa-star text-yellow-500"></i><i class="fa-solid fa-star text-yellow-500"></i><i
+            class="fa-solid fa-star text-yellow-500"></i><i class="fa-solid fa-star text-yellow-500"></i><i
+            class="fa-solid fa-star text-yellow-500"></i>
+        </div>
+        <p class="text-sm text-gray-600">Hydrating serum for glowing and soft skin.</p>
+        <p class="text-xl font-bold">2100 PKR</p>
+        <div class="flex items-center gap-4">
+          <span class="font-medium">Quantity</span>
+          <div class="flex items-center gap-3 border px-3 py-1 rounded-md">
+            <button onclick="changeQty(this, -1)" class="text-lg font-bold">−</button>
+            <span class="font-medium quantity">1</span>
+            <button onclick="changeQty(this, 1)" class="text-lg font-bold">+</button>
+          </div>
+
+        </div>
+        <button onclick="addToCart(this, 11,'Hydrating Serum', 2100, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTsABqnFJieSAnWUgKgAgmu3wS2f8NP3NY5A&s')"
+          class="flex items-center justify-center gap-2 bg-black text-white py-2 rounded-md hover:bg-green-600 hover:text-black transition cursor-pointer">
+          <i class="fa-solid fa-cart-plus"></i> Add To Cart
+        </button>
+      </div>
+
+      <!-- Product 12 -->
+      <div class="bg-white rounded-xl shadow-lg p-5 flex flex-col gap-4">
+        <span class="bg-green-600 text-white text-xs px-3 py-1 rounded-md w-fit">For Brightening</span>
+        <img class="h-40 w-full object-contain" src="https://safdarsolutions.com/storage/product_pictures/6IUcqxF4GtbFkELvrAZrwPUgq7QR9sZ9FpLkIMrL.png" alt="Brightening Product">
+        <h1 class="font-semibold text-lg">Brightening Cream</h1>
+        <div class="flex gap-1">
+          <i class="fa-solid fa-star text-yellow-500"></i><i class="fa-solid fa-star text-yellow-500"></i><i
+            class="fa-solid fa-star text-yellow-500"></i><i class="fa-solid fa-star text-yellow-500"></i><i
+            class="fa-solid fa-star text-yellow-500"></i>
+        </div>
+        <p class="text-sm text-gray-600">Brightening cream from SCS for radiant skin.</p>
+        <p class="text-xl font-bold">3300 PKR</p>
+        <div class="flex items-center gap-4">
+          <span class="font-medium">Quantity</span>
+          <div class="flex items-center gap-3 border px-3 py-1 rounded-md">
+            <button onclick="changeQty(this, -1)" class="text-lg font-bold">−</button>
+            <span class="font-medium quantity">1</span>
+            <button onclick="changeQty(this, 1)" class="text-lg font-bold">+</button>
+          </div>
+
+        </div>
+        <button onclick="addToCart(this, 12, 'Brightening Cream', 3300, 'https://safdarsolutions.com/storage/product_pictures/6IUcqxF4GtbFkELvrAZrwPUgq7QR9sZ9FpLkIMrL.png')"
+          class="flex items-center justify-center gap-2 bg-black text-white py-2 rounded-md hover:bg-green-600 hover:text-black transition cursor-pointer">
+          <i class="fa-solid fa-cart-plus"></i> Add To Cart
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <section class="w-full bg-gray-900 py-8 sm:py-12 md:py-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 flex flex-col md:flex-row items-center md:items-start justify-between gap-10">
+      <div class="flex flex-col sm:flex-row items-center gap-4 max-w-md text-center sm:text-left">
+        <img src="./public/top logo (1).png" alt="Logo" class="h-16 w-auto">
+        <p class="text-white text-md leading-snug">Welcome to Emaan Store, take care of your skin with premium products.</p>
+      </div>
+      <div>
+        <ul class="flex flex-col gap-3 text-center md:text-left py-2 text-white">
+          <li class="hover:text-green-600 cursor-pointer">Experience</li>
+          <li class="hover:text-green-600 cursor-pointer">Contact Us</li>
+          <li class="hover:text-green-600 cursor-pointer">Payment Method</li>
+          <li class="hover:text-green-600 cursor-pointer">Return and Exchange</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scripts -->
+  <script>
+    const cartCountEl = document.getElementById("cartCount");
+    const toast = document.getElementById("toast");
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    function updateCartCount() {
+      if (cartCountEl) cartCountEl.innerText = cart.reduce((sum, item) => sum + item.quantity, 0);
+    }
+
+    function showToast(message) {
+      if (!toast) return;
+      toast.innerText = message;
+      toast.classList.remove("hidden");
+      setTimeout(() => toast.classList.add("hidden"), 2000);
+    }
+
+    function changeQty(button, value) {
+      const qtySpan = button.parentElement.querySelector(".quantity");
+      let currentQty = parseInt(qtySpan.innerText);
+      let newQty = currentQty + value;
+      if (newQty >= 1) qtySpan.innerText = newQty;
+    }
+
+    function addToCart(button, id, name, price, img) {
+      const productCard = button.closest(".bg-white");
+      const qty = parseInt(productCard.querySelector(".quantity").innerText);
+      let existingProduct = cart.find(item => item.id === id);
+      if (existingProduct) existingProduct.quantity += qty;
+      else cart.push({ id, name, price, quantity: qty, image: img });
+      localStorage.setItem("cart", JSON.stringify(cart));
+      productCard.querySelector(".quantity").innerText = 1;
+      updateCartCount();
+      showToast(`${name} (${qty}) added to cart`);
+    }
+
+    function removeFromCart(id) {
+      cart = cart.filter(item => item.id !== id);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      renderCart();
+      updateCartCount();
+    }
+
+    function changeCartQty(id, value) {
+      let item = cart.find(product => product.id === id);
+      if (!item) return;
+      item.quantity += value;
+      if (item.quantity < 1) item.quantity = 1;
+      localStorage.setItem("cart", JSON.stringify(cart));
+      renderCart();
+      updateCartCount();
+    }
+
+    const container = document.getElementById("cartItems");
+    function renderCart() {
+      if (!container) return;
+      container.innerHTML = "";
+      if (cart.length === 0) {
+        container.innerHTML = "<p>Your cart is empty!</p>";
+        updateCartTotal();
+        return;
+      }
+      cart.forEach(item => {
+        container.innerHTML += `
+          <div class="flex items-center gap-4 border p-3 rounded">
+            <img src="${item.image}" class="h-20 w-20 object-contain"/>
+            <div class="flex-1">
+              <h3 class="font-semibold">${item.name}</h3>
+              <p>Price: ${item.price} PKR</p>
+              <div class="flex items-center gap-2 mt-1">
+                <button onclick="changeCartQty(${item.id}, -1)" class="px-2 py-1 bg-gray-200 rounded">−</button>
+                <span class="font-medium">${item.quantity}</span>
+                <button onclick="changeCartQty(${item.id}, 1)" class="px-2 py-1 bg-gray-200 rounded">+</button>
+              </div>
+            </div>
+            <button onclick="removeFromCart(${item.id})" class="text-red-500 font-bold">Remove</button>
+          </div>
+        `;
+      });
+      updateCartTotal();
+    }
+
+    function updateCartTotal() {
+      const totalEl = document.getElementById("cartTotal");
+      if (!totalEl) return;
+      const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+      totalEl.innerText = totalPrice + " PKR";
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      updateCartCount();
+      renderCart();
+    });
+  </script>
+</body>
+</html>

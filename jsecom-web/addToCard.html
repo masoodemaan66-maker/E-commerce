@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+  <title>js ecom website</title>
+   <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body>
+    <!-- Header -->
+<header class="w-full bg-gray-900">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 flex flex-col md:flex-row items-center justify-between py-3 gap-1">
+    <!-- Left Text -->
+    <h1 class="text-xl text-white text-center md:text-left whitespace-nowrap">
+      Free shipping 10 days return policy
+    </h1>
+
+    <!-- Right Links -->
+    <ul class="flex gap-4 text-sm whitespace-nowrap">
+      <li><a href="./login.html" class="text-blue-800">SIGN IN</a></li>
+      <li><a href="./signup.html" class="text-blue-800">SIGN UP</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- Navbar -->
+<nav class="w-full bg-white shadow-md">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 flex items-center justify-between h-14">
+    <!-- Logo -->
+       <img class="h-20 w-auto" src="./public/top logo (1).png" alt="Logo">
+
+
+    <!-- Menu -->
+    <ul class="flex gap-6 text-sm md:text-base flex-wrap">
+      <li><a href="/" class="hover:text-green-600 transition">Home</a></li>
+      <li><a href="about.html" class="hover:text-green-600 transition">About</a></li>
+      <li><a href="product.html" class="hover:text-green-600 transition">Products</a></li>
+      <li><a href="contact.html" class="hover:text-green-600 transition">Contact</a></li>
+      <li>
+  <a href="addToCard.html" class="flex items-center gap-2">
+    <i class="fa-solid fa-cart-arrow-down text-gray-900"></i>
+    <span id="cartCount">0</span>
+  </a>
+</li>
+
+    </ul>
+  </div>
+</nav>
+
+<!--Main Section-->
+
+<!-- billing section -->
+<h1 class="text-2xl font-bold mb-4">Your Cart</h1>
+<div id="cartItems" class="flex flex-col gap-4"></div>
+
+<div class="flex justify-between items-center mt-6 border-t pt-4">
+  <span class="font-semibold text-lg">Total:</span>
+  <span id="cartTotal" class="font-bold text-lg">0 PKR</span>
+</div>
+
+<script>
+  let container = document.getElementById('cartItems');
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+function renderCart() {
+  container.innerHTML = '';
+
+  if (cart.length === 0) {
+    container.innerHTML = '<p>Your cart is empty!</p>';
+    updateCartTotal();
+    updateCartCount();
+    return;
+  }
+
+  cart.forEach(item => {
+    container.innerHTML += `
+      <div class="flex items-center gap-4 border p-3 rounded">
+        <img src="${item.image}" class="h-20 w-20 object-contain"/>
+        <div class="flex-1">
+          <h3 class="font-semibold">${item.name}</h3>
+          <p>Price: ${item.price} PKR</p>
+          <div class="flex items-center gap-2 mt-1">
+            <button onclick="changeCartQty(${item.id}, -1)"
+              class="px-2 py-1 bg-gray-200 rounded">−</button>
+            <span class="font-medium">${item.quantity}</span>
+            <button onclick="changeCartQty(${item.id}, 1)"
+              class="px-2 py-1 bg-gray-200 rounded">+</button>
+          </div>
+        </div>
+        <button onclick="removeFromCart(${item.id})"
+          class="text-red-500 font-bold">Remove</button>
+      </div>
+    `;
+  });
+
+  updateCartTotal();
+  updateCartCount();
+}
+
+function changeCartQty(id, value) {
+  let item = cart.find(product => product.id === id);
+  if (!item) return;
+
+  item.quantity += value;
+  if (item.quantity < 1) item.quantity = 1;
+
+  localStorage.setItem('cart', JSON.stringify(cart));
+  renderCart();
+}
+
+function removeFromCart(id) {
+  cart = cart.filter(item => item.id !== id);
+  localStorage.setItem('cart', JSON.stringify(cart));
+  renderCart();
+}
+
+function updateCartCount() {
+  let total = cart.reduce((sum, item) => sum + item.quantity, 0);
+  const cartCountEl = document.getElementById("cartCount");
+  if (cartCountEl) cartCountEl.innerText = total;
+}
+
+function updateCartTotal() {
+  let totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const totalEl = document.getElementById("cartTotal");
+  if (totalEl) totalEl.innerText = totalPrice + ' PKR';
+}
+
+// Initialize on page load
+renderCart();
+
+</script>
+
+</body>
+</html>
